@@ -3,14 +3,14 @@ module Bootstrap
 
   # Inspired by Kaminari
   def self.load!
-    if compass? && asset_pipeline?
+    if compass? && rails?
       register_compass_extension
       register_rails_engine
     elsif compass?
       # Only require compass extension if a standalone project
       require 'bootstrap-sass/compass_functions'
       register_compass_extension
-    elsif asset_pipeline?
+    elsif rails?
       require 'sass-rails' # See: https://github.com/thomas-mcdonald/bootstrap-sass/pull/4
       register_rails_engine
       require 'bootstrap-sass/rails_functions'
@@ -22,8 +22,8 @@ module Bootstrap
   end
 
   private
-  def self.asset_pipeline?
-    defined?(::Sprockets)
+  def self.rails?
+    defined?(::Rails)
   end
 
   def self.compass?
