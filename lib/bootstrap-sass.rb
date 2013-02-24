@@ -8,8 +8,8 @@ module Bootstrap
       register_rails_engine
     elsif compass?
       # Only require compass extension if a standalone project
-      require 'bootstrap-sass/compass_functions'
-      register_compass_extension
+      #require 'bootstrap-sass/compass_functions'
+      #register_compass_extension
     elsif rails?
       require 'sass-rails' # See: https://github.com/thomas-mcdonald/bootstrap-sass/pull/4
       register_rails_engine
